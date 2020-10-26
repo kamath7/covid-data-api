@@ -2,7 +2,7 @@ const express = require("express");
 
 const { getDataofcovid } = require("./getData");
 const app = express();
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 app.get("/api/data", async (req, res) => {
   try {
