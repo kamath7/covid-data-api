@@ -1,0 +1,1 @@
+Access the API at https://kams-covid-data.herokuapp.com/api/data
