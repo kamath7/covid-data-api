@@ -2,12 +2,17 @@ const axios = require("axios");
 const getDataofcovid = async () => {
   //Karnataka related data
   const karnataka = await axios(`https://api.covid19india.org/v4/data.json`);
+  // console.log(karnataka.data.KA)
   const dailyCount = await karnataka.data.KA.delta.confirmed;
   const bangaloreCount = await karnataka.data.KA.districts["Bengaluru Urban"]
     .delta.confirmed;
   const mangaloreCount = await karnataka.data.KA.districts["Dakshina Kannada"]
     .delta.confirmed;
   const udupiCount = await karnataka.data.KA.districts["Udupi"].delta.confirmed;
+  const kasargodCount = await karnataka.data.KL.districts.Kasaragod.delta.confirmed;
+
+  const mangaloreDeath = await karnataka.data.KA.districts["Dakshina Kannada"].delta.deceased;
+  
   const totalRecovered = await karnataka.data.KA.total.recovered;
   const totalCases = await karnataka.data.KA.total.confirmed;
   const total = (totalRecovered / totalCases) * 100;
@@ -28,6 +33,8 @@ const getDataofcovid = async () => {
     bangaloreCount,
     mangaloreCount,
     udupiCount,
+    kasargodCount,
+    mangaloreDeath,
     bangaloreRecoveryRate: total.toFixed(2),
     indiaDailyConfirmed,
     indiaRecoveryRate: indiaRecoveryRate.toFixed(2),

@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 app.get("/api/data", async (req, res) => {
   try {
     const result = await getDataofcovid();
+    console.log(result);
     await res.status(200).send({
       message: "Many thanks to https://api.covid19india.org/",
       data: result,
