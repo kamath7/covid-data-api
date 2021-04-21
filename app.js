@@ -16,7 +16,7 @@ app.get("/api/data", async (req, res) => {
     res.status(400).send(error);
   }
 });
-
+//lalle
 app.listen(port, () => {
   console.log("Server up and running!");
 });
