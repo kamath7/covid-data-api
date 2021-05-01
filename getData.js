@@ -9,10 +9,17 @@ const getDataofcovid = async () => {
   const mangaloreCount = await karnataka.data.KA.districts["Dakshina Kannada"]
     .delta.confirmed;
   const udupiCount = await karnataka.data.KA.districts["Udupi"].delta.confirmed;
+  const kodaguCount = await karnataka.data.KA.districts['Kodagu'].delta.confirmed;
+
   const kasargodCount = await karnataka.data.KL.districts.Kasaragod.delta.confirmed;
 
   const mangaloreDeath = await karnataka.data.KA.districts["Dakshina Kannada"].delta.deceased;
   
+  const karnatakaVaccinations = await karnataka.data.KA.total.vaccinated
+  const keralaVaccinations = await karnataka.data.KL.total.vaccinated
+  const mangaloreVaccinations = await karnataka.data.KA.districts['Dakshina Kannada'].total.vaccinated
+
+
   const totalRecovered = await karnataka.data.KA.total.recovered;
   const totalCases = await karnataka.data.KA.total.confirmed;
   const total = (totalRecovered / totalCases) * 100;
@@ -33,11 +40,15 @@ const getDataofcovid = async () => {
     bangaloreCount,
     mangaloreCount,
     udupiCount,
+    kodaguCount,
     kasargodCount,
     mangaloreDeath,
-    bangaloreRecoveryRate: total.toFixed(2),
-    indiaDailyConfirmed,
-    indiaRecoveryRate: indiaRecoveryRate.toFixed(2),
+    karnatakaVaccinations,
+    keralaVaccinations,
+    mangaloreVaccinations,
+    bangaloreRecoveryRate: parseFloat(total.toFixed(2)),
+    indiaDailyConfirmed: parseFloat(indiaDailyConfirmed),
+    indiaRecoveryRate: parseFloat(indiaRecoveryRate.toFixed(2)),
   };
   console.log(final);
   return final;
