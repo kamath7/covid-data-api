@@ -64,6 +64,7 @@ const getDataofcovid = async () => {
     mangaloreDeath,
     shimogaDeath,
     mysoreDeath,
+    kodaguDeath,
     karnatakaVaccinations,
     keralaVaccinations,
     mangaloreVaccinations,
@@ -71,7 +72,6 @@ const getDataofcovid = async () => {
     indiaDailyConfirmed: parseFloat(indiaDailyConfirmed),
     indiaRecoveryRate: parseFloat(indiaRecoveryRate.toFixed(2)),
   };
-  console.log(final);
   return final;
 };
 
