@@ -9,16 +9,32 @@ const getDataofcovid = async () => {
   const mangaloreCount = await karnataka.data.KA.districts["Dakshina Kannada"]
     .delta.confirmed;
   const udupiCount = await karnataka.data.KA.districts["Udupi"].delta.confirmed;
-  const kodaguCount = await karnataka.data.KA.districts['Kodagu'].delta.confirmed;
+  const kodaguCount = await karnataka.data.KA.districts["Kodagu"].delta
+    .confirmed;
+  const mysoreCount = await karnataka.data.KA.districts["Mysuru"].delta
+    .confirmed;
+  const shimogaCount = await karnataka.data.KA.districts["Shivamogga"].delta
+    .confirmed;
 
-  const kasargodCount = await karnataka.data.KL.districts.Kasaragod.delta.confirmed;
+  const kasargodCount = await karnataka.data.KL.districts.Kasaragod.delta
+    .confirmed;
+  const wayanadCount = await karnataka.data.KL.districts.Wayanad.delta
+    .confirmed;
 
-  const mangaloreDeath = await karnataka.data.KA.districts["Dakshina Kannada"].delta.deceased;
-  
-  const karnatakaVaccinations = await karnataka.data.KA.total.vaccinated
-  const keralaVaccinations = await karnataka.data.KL.total.vaccinated
-  const mangaloreVaccinations = await karnataka.data.KA.districts['Dakshina Kannada'].total.vaccinated
+  const mangaloreDeath = await karnataka.data.KA.districts["Dakshina Kannada"]
+    .delta.deceased;
+  const mysoreDeath = await karnataka.data.KA.districts["Mysuru"].delta
+    .deceased;
+  const shimogaDeath = await karnataka.data.KA.districts["Shivamogga"].delta
+    .deceased;
+  const kodaguDeath = await karnataka.data.KA.districts["Kodagu"].delta
+    .deceased;
 
+  const karnatakaVaccinations = await karnataka.data.KA.total.vaccinated;
+  const keralaVaccinations = await karnataka.data.KL.total.vaccinated;
+  const mangaloreVaccinations = await karnataka.data.KA.districts[
+    "Dakshina Kannada"
+  ].total.vaccinated;
 
   const totalRecovered = await karnataka.data.KA.total.recovered;
   const totalCases = await karnataka.data.KA.total.confirmed;
@@ -41,8 +57,13 @@ const getDataofcovid = async () => {
     mangaloreCount,
     udupiCount,
     kodaguCount,
+    mysoreCount,
+    shimogaCount,
     kasargodCount,
+    wayanadCount,
     mangaloreDeath,
+    shimogaDeath,
+    mysoreDeath,
     karnatakaVaccinations,
     keralaVaccinations,
     mangaloreVaccinations,
