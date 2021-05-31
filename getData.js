@@ -23,6 +23,8 @@ const getDataofcovid = async () => {
 
   const mangaloreDeath = await karnataka.data.KA.districts["Dakshina Kannada"]
     .delta.deceased;
+  const bangaloreUrbanDeath = await karnataka.data.KA.districts["Bengaluru Urban"]
+    .delta.deceased;
   const mysoreDeath = await karnataka.data.KA.districts["Mysuru"].delta
     .deceased;
   const shimogaDeath = await karnataka.data.KA.districts["Shivamogga"].delta
@@ -62,6 +64,7 @@ const getDataofcovid = async () => {
     kasargodCount,
     wayanadCount,
     mangaloreDeath,
+    bangaloreUrbanDeath,
     shimogaDeath,
     mysoreDeath,
     kodaguDeath,
