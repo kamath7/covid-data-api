@@ -4,6 +4,7 @@ const getDataofcovid = async () => {
   const karnataka = await axios(`https://api.covid19india.org/v4/data.json`);
   // console.log(karnataka.data.KA)
   const dailyCount = await karnataka.data.KA.delta.confirmed;
+  const keralaCount = await karnataka.data.KL.delta.confirmed;
   const bangaloreCount = await karnataka.data.KA.districts["Bengaluru Urban"]
     .delta.confirmed;
   const mangaloreCount = await karnataka.data.KA.districts["Dakshina Kannada"]
@@ -23,20 +24,15 @@ const getDataofcovid = async () => {
 
   const mangaloreDeath = await karnataka.data.KA.districts["Dakshina Kannada"]
     .delta.deceased;
-  const bangaloreUrbanDeath = await karnataka.data.KA.districts["Bengaluru Urban"]
-    .delta.deceased;
+  const bangaloreUrbanDeath = await karnataka.data.KA.districts[
+    "Bengaluru Urban"
+  ].delta.deceased;
   const mysoreDeath = await karnataka.data.KA.districts["Mysuru"].delta
     .deceased;
   const shimogaDeath = await karnataka.data.KA.districts["Shivamogga"].delta
     .deceased;
   const kodaguDeath = await karnataka.data.KA.districts["Kodagu"].delta
     .deceased;
-
-  const karnatakaVaccinations = await karnataka.data.KA.total.vaccinated;
-  const keralaVaccinations = await karnataka.data.KL.total.vaccinated;
-  const mangaloreVaccinations = await karnataka.data.KA.districts[
-    "Dakshina Kannada"
-  ].total.vaccinated;
 
   const totalRecovered = await karnataka.data.KA.total.recovered;
   const totalCases = await karnataka.data.KA.total.confirmed;
@@ -55,6 +51,7 @@ const getDataofcovid = async () => {
 
   const final = {
     karnatakaCount: dailyCount,
+    keralaCount,
     bangaloreCount,
     mangaloreCount,
     udupiCount,
@@ -68,9 +65,6 @@ const getDataofcovid = async () => {
     shimogaDeath,
     mysoreDeath,
     kodaguDeath,
-    karnatakaVaccinations,
-    keralaVaccinations,
-    mangaloreVaccinations,
     bangaloreRecoveryRate: parseFloat(total.toFixed(2)),
     indiaDailyConfirmed: parseFloat(indiaDailyConfirmed),
     indiaRecoveryRate: parseFloat(indiaRecoveryRate.toFixed(2)),
